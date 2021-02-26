@@ -49,7 +49,7 @@ Mozilla: <https://bugzilla.mozilla.org/>
 sudo rpm -i firefox-dev-{version}.{dist}.rpm
 
 # or update current version
-sudo rpm -i firefox-dev-{version}.{dist}.rpm
+sudo rpm -U firefox-dev-{version}.{dist}.rpm
 ```
 
 3. Launch application from the Application Menu or execute, 
