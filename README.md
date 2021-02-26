@@ -7,6 +7,8 @@
     <img src="https://www.mozilla.org/media/img/firefox/developer/hero-screenshot.baf6dd693658.png">
 </p>
 
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/AnjaloHettiarachchi/firefox-dev-fedora) [![Build & Release RPM & SRPM packages](https://github.com/AnjaloHettiarachchi/firefox-dev-fedora/actions/workflows/build_and_release.yml/badge.svg)](https://github.com/AnjaloHettiarachchi/firefox-dev-fedora/actions/workflows/build_and_release.yml)
+
 An unofficial RPM package of [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) designed for [Fedora](https://getfedora.org).
 
 ## Special Note
@@ -43,10 +45,14 @@ Mozilla: <https://bugzilla.mozilla.org/>
 2. Go to folder where the package downloaded and execute following command.
 
 ```Shell
-# rpm -i firefox-dev-{version}.{dist}.rpm
+# To install ...
+sudo rpm -i firefox-dev-{version}.{dist}.rpm
+
+# or update current version
+sudo rpm -i firefox-dev-{version}.{dist}.rpm
 ```
 
 3. Launch application from the Application Menu or execute, 
 ```Shell
-$ firefox-dev
+firefox-dev
 ```
