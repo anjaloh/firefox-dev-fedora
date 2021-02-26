@@ -30,7 +30,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           body: |
-            Find release notes [here](https://www.mozilla.org/en-US/firefox/86.0beta/releasenotes/).
+            Find release notes [here](https://www.mozilla.org/en-US/firefox/87.0beta/releasenotes/).
           draft: false
           prerelease: false
 
