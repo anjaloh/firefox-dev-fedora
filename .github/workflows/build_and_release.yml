@@ -1,0 +1,57 @@
+---
+name: Build & Release RPM & SRPM packages
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    name: Build and release as assets
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Build RPM and SRPM packages
+        id: rpm_build
+        uses: AnjaloHettiarachchi/rpmbuild@v1.0.0
+        with:
+          spec_file: "firefox-dev.spec"
+
+      - name: Create a new release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body: |
+            Find release notes [here](https://www.mozilla.org/en-US/firefox/86.0beta/releasenotes/).
+          draft: false
+          prerelease: false
+
+      - name: Upload RPM as a release asset
+        id: upload_rpm_release
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.rpm_build.outputs.rpm_path }}
+          asset_name: ${{ steps.rpm_build.outputs.rpm_name }}
+          asset_content_type: ${{ steps.rpm_build.outputs.content_type }}
+
+      - name: Upload SRPM as a release asset
+        id: upload_srpm_release
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.rpm_build.outputs.srpm_path }}
+          asset_name: ${{ steps.rpm_build.outputs.srpm_name }}
+          asset_content_type: ${{ steps.rpm_build.outputs.content_type }}
