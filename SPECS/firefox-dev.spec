@@ -1,5 +1,5 @@
 Name:       firefox-dev        
-Version:    87.0b1    
+Version:    87.0b2    
 Release:    1%{?dist}
 Summary:    Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
