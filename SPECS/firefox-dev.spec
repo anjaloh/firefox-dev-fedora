@@ -53,7 +53,7 @@ Bugs related to this package should be reported at my GitHub project:
 
 %__ln_s /opt/%{application_name}/firefox %{buildroot}%{_bindir}/%{application_name}
 
-%__install -D -m 0644 %{SOURCE1} -t --dir=%{buildroot}%{_datadir}/applications
+%__install -D -m 0644 %{SOURCE1} -t %{buildroot}%{_datadir}/applications
 
 %post
 xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/icons/default/default128.png firefox-developer-edition
