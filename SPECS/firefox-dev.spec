@@ -1,18 +1,20 @@
+%global     source_name firefox
+%global     application_name firefox-dev
+
 Name:       firefox-dev        
 Version:    87.0b4    
-Release:    8%{?dist}
+Release:    1%{?dist}
 Summary:    Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
 License:    MPLv1.1 or GPLv2+ or LGPLv2+
 URL:        https://www.mozilla.org/en-US/firefox/developer/
 Source0:    https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
-Source1:    firefox_developer_edition.desktop
+Source1:    firefox-developer-edition.desktop
 
 ExclusiveArch: x86_64
 
-BuildRequires:  desktop-file-utils
-BuildRequires:  xdg-utils
-BuildRequires:  gtk-update-icon-cache
+Requires(post):  xdg-utils
+Requires(post):  gtk-update-icon-cache
 
 %description
 This is a pre-beta release of Mozilla Firefox intended for Web developers and
@@ -40,27 +42,27 @@ Bugs related to this package should be reported at my GitHub project:
 <https://github.com/AnjaloHettiarachchi/firefox-dev-rpm/>
 
 %prep
-%setup -q -n firefox
+%setup -q -n %{source_name}
 
 %install
 %__rm -rf %{buildroot}
 
-%__install -d %{buildroot}{/opt/firefox-dev,%{_bindir},%{_datadir}/applications}
+%__install -d %{buildroot}{/opt/%{application_name},%{_bindir},%{_datadir}/applications}
 
-%__cp -r * %{buildroot}/opt/firefox-dev
+%__cp -r * %{buildroot}/opt/%{application_name}
 
-%__ln_s /opt/firefox-dev/firefox %{buildroot}%{_bindir}/firefox-dev
+%__ln_s /opt/%{application_name}/firefox %{buildroot}%{_bindir}/%{application_name}
 
-desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
+%__install -D -m 0644 %{SOURCE1} -t --dir=%{buildroot}%{_datadir}/applications
 
 %post
 xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/icons/default/default128.png firefox-developer-edition
 gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 
 %files
-%{_datadir}/applications/firefox_developer_edition.desktop
-%{_bindir}/firefox-dev
-/opt/firefox-dev
+%{_datadir}/applications/%{SOURCE1}
+%{_bindir}/%{application_name}
+/opt/%{application_name}
 
 %changelog
 * Fri Feb 19 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com>
