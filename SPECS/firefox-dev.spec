@@ -1,6 +1,6 @@
 Name:       firefox-dev        
 Version:    87.0b4    
-Release:    4%{?dist}
+Release:    5%{?dist}
 Summary:    Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
 License:    MPLv1.1 or GPLv2+ or LGPLv2+
