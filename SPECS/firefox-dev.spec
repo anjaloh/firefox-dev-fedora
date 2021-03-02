@@ -1,6 +1,6 @@
 Name:       firefox-dev        
 Version:    87.0b4    
-Release:    7%{?dist}
+Release:    8%{?dist}
 Summary:    Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
 License:    MPLv1.1 or GPLv2+ or LGPLv2+
@@ -41,7 +41,6 @@ Bugs related to this package should be reported at my GitHub project:
 
 %prep
 %setup -q -n firefox
-export XDG_UTILS_DEBUG_LEVEL=5
 
 %install
 %__rm -rf %{buildroot}
@@ -52,12 +51,11 @@ export XDG_UTILS_DEBUG_LEVEL=5
 
 %__ln_s /opt/firefox-dev/firefox %{buildroot}%{_bindir}/firefox-dev
 
+desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
+
 %post
-if [ $1 -gt 1 ] ; then
-    xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/icons/default/default128.png firefox-developer-edition
-    gtk-update-icon-cache -f -t /usr/share/icons/hicolor
-    desktop-file-install --dir=/usr/share/applications %{SOURCE1}
-fi
+xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/icons/default/default128.png firefox-developer-edition
+gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 
 %files
 %{_datadir}/applications/firefox_developer_edition.desktop
