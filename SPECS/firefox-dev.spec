@@ -41,6 +41,7 @@ Bugs related to this package should be reported at my GitHub project:
 
 %prep
 %setup -q -n firefox
+%__mkdir %{_datadir}/desktop-directories/
 
 %install
 %__rm -rf %{buildroot}
