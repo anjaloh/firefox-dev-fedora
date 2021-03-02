@@ -60,7 +60,7 @@ xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/
 gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 
 %files
-%{_datadir}/applications/%{SOURCE1}
+%{_datadir}/applications/firefox-developer-edition.desktop
 %{_bindir}/%{application_name}
 /opt/%{application_name}
 
