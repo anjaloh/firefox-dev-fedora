@@ -11,7 +11,7 @@ Source1:    firefox_developer_edition.desktop
 ExclusiveArch: x86_64
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  xdg-icon-resource
+BuildRequires:  xdg-utils
 BuildRequires:  gtk-update-icon-cache
 
 %description
