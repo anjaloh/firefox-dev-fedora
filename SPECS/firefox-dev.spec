@@ -1,20 +1,20 @@
-%global     source_name firefox
-%global     application_name firefox-dev
+%global             source_name firefox
+%global             application_name firefox-dev
 
-Name:       firefox-dev        
-Version:    87.0b7    
-Release:    1%{?dist}
-Summary:    Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
+Name:               firefox-dev
+Version:            87.0b8
+Release:            1%{?dist}
+Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
-License:    MPLv1.1 or GPLv2+ or LGPLv2+
-URL:        https://www.mozilla.org/en-US/firefox/developer/
-Source0:    https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
-Source1:    firefox-developer-edition.desktop
+License:            MPLv1.1 or GPLv2+ or LGPLv2+
+URL:                https://www.mozilla.org/en-US/firefox/developer/
+Source0:            https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
+Source1:            firefox-developer-edition.desktop
 
-ExclusiveArch: x86_64
+ExclusiveArch:      x86_64
 
-Requires(post):  xdg-utils
-Requires(post):  gtk-update-icon-cache
+Requires(post):     xdg-utils
+Requires(post):     gtk-update-icon-cache
 
 %description
 This is a pre-beta release of Mozilla Firefox intended for Web developers and
@@ -65,5 +65,8 @@ gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 /opt/%{application_name}
 
 %changelog
-* Fri Feb 19 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com>
+* Wed Mar 10 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 87.0b8-1
+- Minor version upgrade
+
+* Fri Feb 19 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 86.0b8-1
 - Initial build
