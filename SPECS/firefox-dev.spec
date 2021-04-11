@@ -65,13 +65,13 @@ gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 /opt/%{application_name}
 
 %changelog
-* Sat Apr 11 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b9-1
+* Sun Apr 11 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b9-1
 - Minor version upgrade
 
-* Sat Apr 08 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b8-1
+* Thu Apr 08 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b8-1
 - Minor version upgrade
 
-* Sat Apr 06 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b7-1
+* Tue Apr 06 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b7-1
 - Minor version upgrade
 
 * Sat Apr 03 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 88.0b6-1
