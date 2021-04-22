@@ -10,7 +10,7 @@ An unofficial RPM package of [Firefox Developer Edition](https://www.mozilla.org
 
 ## Special Note
 
-This is just a RPM packaging for the said software and does not include any licenses of its own. Only additional file included is the `.desktop` file written based on the original executable from the Firefox Release Channel (default).
+This is just an RPM packaging for the said software and does not include any licenses of its own. The only additional file included is the `.desktop` file written based on the original executable from the Firefox Release Channel (default).
 
 ## About the Application
 
@@ -20,7 +20,7 @@ enthusiasts who want early access to new features. It receives new updates
 that won't make it into the stable release of Firefox for some months. It also
 comes with some addons for Web development enabled by default.
 
-You may actually find that Developer Edition works just fine for normal everyday
+You may find that Developer Edition works just fine for everyday
 use: Some users set it as their default Web browser. You can sign in to your
 normal Firefox account and sync your preferences, extensions, and bookmarks,
 etc. Or you can keep the Firefox versions separate, and use different profiles,
@@ -39,17 +39,14 @@ Mozilla: <https://bugzilla.mozilla.org/>
 
 1. Download the latest RPM package built for your Fedora distribution from the release section.
 
-2. Go to folder where the package downloaded and execute following command.
+2. Go to the folder where the package is downloaded and execute the following command.
 
 ```Shell
-# To install ...
-sudo rpm -i firefox-dev-{version}.{dist}.rpm
-
-# or update current version
-sudo rpm -U firefox-dev-{version}.{dist}.rpm
+# To install/update ...
+$ sudo dnf install firefox-dev-{version}-1.fc33.x86_64.rpm
 ```
 
-3. Launch application from the Application Menu or execute, 
+3. Launch the application from the Application Menu or execute, 
 ```Shell
-firefox-dev
+$ firefox-dev
 ```
