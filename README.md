@@ -1,10 +1,7 @@
 # firefox-dev-fedora
 
 <p align="center">
-    <img width="368" height="68" src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/developer/logo-word-hor-lg.977a1e574948.png">
-</p>
-<p align="center">
-    <img src="https://www.mozilla.org/media/img/firefox/developer/hero-screenshot.baf6dd693658.png">
+    <img src="https://res.cloudinary.com/axicon/image/upload/v1619083500/GitHub/AnjaloHettiarachchi/firefox-dev-fedora/github-og-template-01_q22uyi.jpg">
 </p>
 
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/AnjaloHettiarachchi/firefox-dev-fedora) ![GitHub all releases](https://img.shields.io/github/downloads/AnjaloHettiarachchi/firefox-dev-fedora/total) [![Build & Release RPM & SRPM packages](https://github.com/AnjaloHettiarachchi/firefox-dev-fedora/actions/workflows/build_and_release.yml/badge.svg)](https://github.com/AnjaloHettiarachchi/firefox-dev-fedora/actions/workflows/build_and_release.yml)
