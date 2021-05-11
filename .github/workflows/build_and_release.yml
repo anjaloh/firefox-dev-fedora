@@ -15,9 +15,15 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: Build RPM and SRPM packages
-        id: rpm_build
-        uses: AnjaloHettiarachchi/rpmbuild@v1.0.0
+      - name: Build RPM and SRPM packages Fedora latest release
+        id: rpm_build_latest
+        uses: AnjaloHettiarachchi/rpmbuild@v1.0.1-latest
+        with:
+          spec_file: "firefox-dev.spec"
+
+      - name: Build RPM and SRPM packages for Fedora 33 release
+        id: rpm_build_f33
+        uses: AnjaloHettiarachchi/rpmbuild@v1.0.1-f33
         with:
           spec_file: "firefox-dev.spec"
 
@@ -34,24 +40,46 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload RPM as a release asset
-        id: upload_rpm_release
+      - name: Upload RPM as a release asset built for Fedora latest release
+        id: upload_rpm_release_latest
         uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.rpm_build.outputs.rpm_path }}
-          asset_name: ${{ steps.rpm_build.outputs.rpm_name }}
-          asset_content_type: ${{ steps.rpm_build.outputs.content_type }}
+          asset_path: ${{ steps.rpm_build_latest.outputs.rpm_path }}
+          asset_name: ${{ steps.rpm_build_latest.outputs.rpm_name }}
+          asset_content_type: ${{ steps.rpm_build_latest.outputs.content_type }}
 
-      - name: Upload SRPM as a release asset
-        id: upload_srpm_release
+      - name: Upload SRPM as a release asset built for Fedora latest release
+        id: upload_srpm_release_latest
         uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.rpm_build.outputs.srpm_path }}
-          asset_name: ${{ steps.rpm_build.outputs.srpm_name }}
-          asset_content_type: ${{ steps.rpm_build.outputs.content_type }}
+          asset_path: ${{ steps.rpm_build_latest.outputs.srpm_path }}
+          asset_name: ${{ steps.rpm_build_latest.outputs.srpm_name }}
+          asset_content_type: ${{ steps.rpm_build_latest.outputs.content_type }}
+
+      - name: Upload RPM as a release asset built for Fedora 33 release
+        id: upload_rpm_release_f33
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.rpm_build_f33.outputs.rpm_path }}
+          asset_name: ${{ steps.rpm_build_f33.outputs.rpm_name }}
+          asset_content_type: ${{ steps.rpm_build_f33.outputs.content_type }}
+
+      - name: Upload SRPM as a release asset built for Fedora 33 release
+        id: upload_srpm_release_f33
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.rpm_build_f33.outputs.srpm_path }}
+          asset_name: ${{ steps.rpm_build_f33.outputs.srpm_name }}
+          asset_content_type: ${{ steps.rpm_build_f33.outputs.content_type }}
