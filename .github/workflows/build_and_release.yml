@@ -17,13 +17,13 @@ jobs:
 
       - name: Build RPM and SRPM packages Fedora latest release
         id: rpm_build_latest
-        uses: AnjaloHettiarachchi/rpmbuild@v1.0.2-latest
+        uses: AnjaloHettiarachchi/rpmbuild@v1.1.0-latest
         with:
           spec_file: "firefox-dev.spec"
 
       - name: Build RPM and SRPM packages for Fedora 33 release
         id: rpm_build_f33
-        uses: AnjaloHettiarachchi/rpmbuild@v1.0.2-f33
+        uses: AnjaloHettiarachchi/rpmbuild@v1.1.0-f33
         with:
           spec_file: "firefox-dev.spec"
 
