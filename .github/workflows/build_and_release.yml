@@ -36,7 +36,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           body: |
-            Find release notes from [here](https://www.mozilla.org/en-US/firefox/91.0beta/releasenotes/).
+            Find release notes from [here](https://www.mozilla.org/en-US/firefox/92.0beta/releasenotes/).
           draft: false
           prerelease: false
 
